@@ -3,4 +3,4 @@ project(untitled13)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(untitled13 main.cpp LinkedList.h DynamicArray.h Sequences.h Iterators.h TemplateElem.h)
+add_executable(untitled13 main.cpp LinkedList.h DynamicArray.h Sequences.h Iterators.h TemplateElem.h LinkedListSequence.h ArraySequence.h ISorter.h)

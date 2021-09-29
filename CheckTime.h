@@ -17,7 +17,7 @@ void ARRAY_STRESS_TEST_Merge_Sort_special(bool(*cmp)(const T&,const T&)){
 
         ArraySequence<int> arrSeq(array,current_size);
         unsigned int start_time = clock();
-        MergeSort(&arrSeq,cmp);
+        arrSeq.MergeSort(cmp);
         unsigned int end_time = clock();
         unsigned int search_time = end_time - start_time;
         out << search_time << ' ';
@@ -38,7 +38,7 @@ void ARRAY_STRESS_TEST_Merge_Sort(bool(*cmp)(const T&,const T&)){
 
         ArraySequence<int> arrSeq(array,current_size);
         unsigned int start_time = clock();
-        MergeSort(&arrSeq,cmp);
+        arrSeq.MergeSort(cmp);
         unsigned int end_time = clock();
         unsigned int search_time = end_time - start_time;
         out << search_time << ' ';
@@ -58,7 +58,7 @@ void ARRAY_STRESS_TEST_ShellSort(bool(*cmp)(const T&,const T&)){
         }
         ArraySequence<int> arrSeq(array,current_size);
         unsigned int start_time = clock();
-        ShellSort(&arrSeq,cmp);
+        arrSeq.ShellSort(cmp);
         unsigned int end_time = clock();
         unsigned int search_time = end_time - start_time;
         out << search_time << ' ';
@@ -78,7 +78,7 @@ void ARRAY_STRESS_TEST_QuickSort(bool(*cmp)(const T&,const T&),bool(*pred)(const
         ArraySequence<int> arrSeq(array,current_size);
 
         unsigned int start_time = clock();
-        QuickSort(&arrSeq,cmp,pred);
+        arrSeq.QuickSort(cmp,pred);
         unsigned int end_time = clock();
         unsigned int search_time = end_time - start_time;
 
@@ -90,11 +90,10 @@ void ARRAY_STRESS_TEST_QuickSort(bool(*cmp)(const T&,const T&),bool(*pred)(const
 template<typename T>
 void LIST_STRESS_TEST_Merge_Sort_special(bool(*cmp)(const T&,const T&)){
     int size = 10000;
-    std::cout << "kek";
+
     std::ofstream out;
     out.open("ListOnlyMergeSort.txt");
     for (int i = 1; i <= 10; ++i) {
-        std::cout << i << std::endl;
         int current_size = size * i;
         int array[current_size];
         for (int j = 0; j < current_size; ++j) {
@@ -102,7 +101,7 @@ void LIST_STRESS_TEST_Merge_Sort_special(bool(*cmp)(const T&,const T&)){
         }
         LinkedListSequence<int> arrSeq(array,current_size);
         unsigned int start_time = clock();
-        MergeSort(&arrSeq,cmp);
+        arrSeq.MergeSort(cmp);
         unsigned int end_time = clock();
         unsigned int search_time = end_time - start_time;
         out << search_time << ' ';
@@ -124,7 +123,7 @@ void LIST_STRESS_TEST_Merge_Sort(bool(*cmp)(const T&,const T&)){
 
         LinkedListSequence<int> arrSeq(array,current_size);
         unsigned int start_time = clock();
-        MergeSort(&arrSeq,cmp);
+        arrSeq.MergeSort(cmp);
         unsigned int end_time = clock();
         unsigned int search_time = end_time - start_time;
         out << search_time << ' ';
@@ -144,7 +143,7 @@ void LIST_STRESS_TEST_ShellSort(bool(*cmp)(const T&,const T&)){
         }
         LinkedListSequence<int> arrSeq(array,current_size);
         unsigned int start_time = clock();
-        ShellSort(&arrSeq,cmp);
+        arrSeq.ShellSort(cmp);
         unsigned int end_time = clock();
         unsigned int search_time = end_time - start_time;
         out << search_time << ' ';
@@ -164,7 +163,7 @@ void LIST_STRESS_TEST_QuickSort(bool(*cmp)(const T&,const T&),bool(*pred)(const 
         LinkedListSequence<int> arrSeq(array,current_size);
 
         unsigned int start_time = clock();
-        QuickSort(&arrSeq,cmp,pred);
+        arrSeq.QuickSort(cmp,pred);
         unsigned int end_time = clock();
         unsigned int search_time = end_time - start_time;
 

@@ -2,9 +2,9 @@
 #include <sstream>
 #include <exception>
 #include <iostream>
-#include "Sequences.h"
-
-#include "Sorting.h"
+#include "ArraySequence.h"
+#include "LinkedListSequence.h"
+#include "FunctionForSorting.h"
 
 template<class T, class U>
 void AssertEqual(const T& t, const U& u,
@@ -59,13 +59,13 @@ void TestMergeSort(){
     {
         int data[5] = {1, -1, 100, 40, 14};
         LinkedListSequence<int> a(data, 5);
-        MergeSort(&a, cmp);
+        a.MergeSort(cmp);
         Assert(IsSorted(a.Begin(), a.End(), cmp), "");
     }
     {
         int data[5] = {1, -1, 100, 40, 14};
         ArraySequence<int> b(data,5);
-        MergeSort(&b,cmp);
+        b.MergeSort(cmp);
         Assert(IsSorted(b.Begin(),b.End(),cmp),"");
     }
 }
@@ -74,13 +74,13 @@ void TestShellSort(){
     {
         int data[5] = {1, -1, 100, 40, 14};
         LinkedListSequence<int> a(data, 5);
-        ShellSort(&a, cmp);
+        a.ShellSort(cmp);
         Assert(IsSorted(a.Begin(), a.End(), cmp), "");
     }
     {
         int data[5] = {1, -1, 100, 40, 14};
         ArraySequence<int> b(data,5);
-        ShellSort(&b,cmp);
+        b.ShellSort(cmp);
         Assert(IsSorted(b.Begin(),b.End(),cmp),"");
     }
 }
@@ -89,13 +89,13 @@ void TestQuickSort(){
     {
         int data[5] = {1, -1, 100, 40, 14};
         LinkedListSequence<int> a(data, 5);
-        QuickSort(&a,cmp,pred);
+        a.QuickSort(cmp,pred);
         Assert(IsSorted(a.Begin(), a.End(), cmp), "");
     }
     {
         int data[5] = {1, -1, 100, 40, 14};
         ArraySequence<int> b(data,5);
-        QuickSort(&b,cmp,pred);
+        b.QuickSort(cmp,pred);
         Assert(IsSorted(b.Begin(),b.End(),cmp),"");
     }
 }

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "UnitTests.h"
 #include "CheckTime.h"
+
 template<typename InputIt>
 void Print(InputIt* begin,InputIt* end){
     for(auto i = begin;*i!=*end;++*i){
@@ -18,7 +19,9 @@ void TestAll(){
 }
 
 int main() {
+
     TestAll();
+
     std::cout << "Start stress - tests ? (y/n)" << std::endl;
     char answer;
     std::cin >> answer;
@@ -82,15 +85,14 @@ int main() {
             if (answer == '1')
                 MergeSort(seq, cmp);
             if (answer == '2')
-                ShellSort(seq, cmp);
+                seq->ShellSort(cmp);
             if (answer == '3')
-                QuickSort(seq, cmp, pred);
+                seq->QuickSort(cmp, pred);
             std::cout << "Your sorted sequence : ";
             Print(seq->Begin(), seq->End());
 
         }
     }
-
 
     return 0;
 }
